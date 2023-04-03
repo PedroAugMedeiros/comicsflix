@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
+import { ComicSelected } from '../interfaces';
 
 interface ComicCardProps {
     thumbnail: string;
@@ -16,8 +17,9 @@ interface ComicCardProps {
 }
     description: string;
     setShowDetails: (value: boolean) => void;
-    setActualDetails: (value: unknown) => void;
+    setActualDetails: (value: ComicSelected) => void;
     id: number;
+    isOrderCompletion: boolean;
 }
 
 
@@ -29,27 +31,27 @@ export default function ComicCard(props: ComicCardProps) {
  
 
 
-    const { setShowDetails, setActualDetails, creators, description, stories, thumbnail, title, path, id } = props;
+    const { setShowDetails, setActualDetails, creators, description, stories, thumbnail, title, path, id, isOrderCompletion  } = props;
 
     function handleClick(isShowDetails: boolean) {
-      setShowDetails(isShowDetails)
-      setActualDetails({ 
-        thumbnail: thumbnail,
-        title: title,
-        creators: creators,
-        stories: stories,
-        description: description
-      })
+      if(!isOrderCompletion) {
+        setShowDetails(isShowDetails)
+        setActualDetails({
+          thumbnail: thumbnail,
+          title: title,
+          creators: creators,
+          stories: stories,
+          description: description,
+          id: 0
+        })
+      }
     }
     
 
     function handleOver(isHover: boolean) {
-     setOnHover(isHover)
-    //  const el = document.getElementById(String(id));
-    //  if(el) {
-    //   const elCoordenadas = el.getBoundingClientRect();
-    //   window.scrollTo( 0, elCoordenadas.y)
-    //  }
+      if(!isOrderCompletion) {
+        setOnHover(isHover)
+      }
     }
 
     if(path ===  notExistImg) {
@@ -67,10 +69,10 @@ export default function ComicCard(props: ComicCardProps) {
 
   return (
      <div onMouseOver={() => handleOver(true)} onMouseOut={() => handleOver(false)} id={String(id)} className={`flex flex-col w-[14%] rounded-md h-72 mb-5 ${onHover ? 'z-10 border-white transition-transform duration-1000 ease-out scale-110 w-[17%] delay-100' : 'z-0 transition-transform duration-1000 ease-out scale-100 delay-100'}`}>
-            <img className={`${onHover ? 'rounded-b-none' : ''} h-72 rounded-md `} src={thumbnail}>
+            <img className={`${onHover && 'rounded-b-none'} h-72 rounded-md `} src={thumbnail}>
             </img>
             {onHover && <div className='flex flex-col bg-[#BD1023]  rounded-b-md text-center justify-center items-center'> 
-              <h1 className='text-[#FFFFFF] m-2 font-semibold text-xs font-dmsan'>{title}</h1>
+              <h1 className='text-[#FFFFFF] m-2 font-semibold text-base font-dmsans'>{title}</h1>
               <button onClick={() => handleClick(true)} onMouseOver={() => setOnHoverDetails(true)} onMouseOut={() => setOnHoverDetails(false)} className={`bg-[#191919] p-1 w-[80%]  font-semibold font-dmsans  rounded-md m-2 ${onHoverDetails ? 'text-[#BD1023]' : 'text-white'}`}>Detalhes</button>
             </div>}
      </div>

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import BackIcon from '../images/Daco_752371.png'
 import Delivery from './Delivery';
 
+
 interface ComicDetailsCardProps {
     title: string | undefined;
     description: string | undefined;
@@ -9,10 +10,12 @@ interface ComicDetailsCardProps {
     creators: { items: [{ name: string; }]; } | undefined
     stories: { items: [{ name: string; }]; } | undefined
     setShowDetails: (value: boolean) => void;
+    setIsOrderCompletion: (value: boolean) => void;
+    setSelectedAdress: (value: string) => void;
 }
 
 export default function ComicDetailsCard(props: ComicDetailsCardProps) {
-    const { thumbnail, title, creators, description, stories, setShowDetails } = props
+    const { thumbnail, title, creators, description, stories, setShowDetails, setIsOrderCompletion, setSelectedAdress } = props
     const [showDelivery, setShowDelivery] = useState(false)
 
 
@@ -49,7 +52,7 @@ export default function ComicDetailsCard(props: ComicDetailsCardProps) {
     <div  className='flex flex-col gap-2 justify-center w-[50%] items-center detailsComicImg z-0 perspectiva'>
             <button onClick={() => setShowDetails(false)} className='flex fixed top-0 left-1 w-[4%] m-2 p-1 px-3 bg-[#BD1023] rounded-full justify-center items-center'><img className='w-[100%] flex flex-col justify-center' src={BackIcon} /></button>
             <div className='flex flex-col justify-center rounded-md  imgDefaultDetails text-center w-[50%] h-[80%]'><div className='flex  flex-row bg-[#FFFFFF] h-[30%]  justify-center items-center px-2 p-5'><h1 className='mx-2 text-3xl py-10 text-[#BD1023] font-semibold font-dmsans'>{title}</h1></div></div>
-            <button className='bg-[#BD1023] text-white font-semibold rounded-md w-[50%] p-4 text-xl deliveryButton'>SELECT DELIVERY LOCATION</button>
+            <button onClick={() => setShowDelivery(true)} className='bg-[#BD1023] text-white font-semibold rounded-md w-[50%] p-4 text-xl deliveryButton'>SELECT DELIVERY LOCATION</button>
 </div>
     <section className='flex flex-col bg-[#EDEEEF] overflow-y-auto w-[50%] h-[100vh]'>
       <div className='flex flex-col bg-[#BD1023] items-center justify-center text-center gap-5 py-14 px-5'>
@@ -63,18 +66,19 @@ export default function ComicDetailsCard(props: ComicDetailsCardProps) {
   <div className=''>{renderStories()}</div>
   </div>
     </section>
+    {showDelivery && <Delivery setSelectedAdress={setSelectedAdress} setIsOrderCompletion={setIsOrderCompletion} setIsShowDelivery={setShowDelivery} />}
       </div>
     // return 
   }
 
   return (
     <div className='flex flex-row   justify-center w-[100%] relative'>
-<div  className='flex flex-col gap-2 justify-center w-[50%] items-center detailsComicImg z-0 perspectiva'>
+<div  className={`flex ${showDelivery && 'opacity-30'} flex-col gap-2 justify-center w-[50%] items-center detailsComicImg z-0 perspectiva`}>
         <button onClick={() => setShowDetails(false)} className='flex fixed top-0 left-1 w-[4%] m-2 p-1 px-3 bg-[#BD1023] rounded-full justify-center items-center '><img className='w-[100%] flex flex-col justify-center' src={BackIcon} /></button>
 
     <img className='thumb opacity-100 w-[50%]' src={thumbnail}/>
     <button onClick={() => setShowDelivery(true)} className='bg-[#BD1023] text-white font-semibold rounded-md w-[50%] p-4 text-xl deliveryButton'>SELECT DELIVERY LOCATION</button></div>
-<section className='flex flex-col bg-[#EDEEEF] overflow-y-auto w-[50%] h-[100vh]'>
+<section className={`flex flex-col bg-[#EDEEEF] overflow-y-auto w-[50%] h-[100vh]  ${showDelivery && 'opacity-30'} `}>
   <div className='flex flex-col bg-[#BD1023] items-center justify-center text-center gap-5  py-14 px-10'>
     <h1 className='uppercase text-4xl text-white font-semibold titleDetails font-dmsans'>{title}</h1>
     {formatedDescription && formatedDescription[0] !== '' ?      <p className='font-sans text-[#ECECEC] text-lg'> {formatedDescription[0]} </p> :  <p className=' font-dmsans text-[#ECECEC] text-lg'> Description Not Exist </p> }
@@ -86,7 +90,7 @@ export default function ComicDetailsCard(props: ComicDetailsCardProps) {
   <div className=''>{renderStories()}</div>
   </div>
 </section>
-{showDelivery && <Delivery />}
+{showDelivery && <Delivery setSelectedAdress={setSelectedAdress} setIsOrderCompletion={setIsOrderCompletion} setIsShowDelivery={setShowDelivery} />}
   </div>
   )
 }

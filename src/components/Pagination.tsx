@@ -13,6 +13,7 @@ const Pagination = (
 
   const [page, setPage] = useState(1)
   const lastPage = 6;
+  const array = [1, 2, 3, 4, 5, 6]
 
   const handleClick = (pageTarget: number, type: string) => {
     if(type === 'select') {
@@ -46,6 +47,20 @@ const Pagination = (
 
   }
 
+  function renderButtons() {
+    // array.map((item: number) => {
+    //   return  <a href="#header">
+    // <button onClick={() => handleClick(item, 'select')} className={`${page === item ? 'bg-[#191919]' : 'bg-[#BD1023]' } p-2 px-4`}>{item}</button>
+    //       </a>
+    // })
+ 
+    return array.map((item: number) => {
+      return <a href="#header">
+        <button onClick={() => handleClick(item, 'select')} className={`${page === item ? 'bg-[#191919]' : 'bg-[#BD1023]' } p-2 px-4`}>{item}</button>
+      </a>
+    })
+  }
+
   return (
     <div
       data-testid='pagination'
@@ -60,20 +75,7 @@ const Pagination = (
         </a>
       </button>
       <section className='flex'>
-  <a href="#header">
-  <button onClick={() => handleClick(1, 'select')} className={`${page === 1 ? 'bg-[#191919]' : 'bg-[#BD1023]' } p-2 px-4`}>1</button>
-        </a>
-        <a href="#header">
- <button onClick={() => handleClick(2, 'select')} className={`${page === 2 ? 'bg-[#191919]' : 'bg-[#BD1023]' } p-2 px-4`}>2</button>
- </a>
- <a href="#header">
- <button onClick={() => handleClick(3, 'select')} className={`${page === 3 ? 'bg-[#191919]' : 'bg-[#BD1023]' } p-2 px-4`}>3</button></a>
- <a href="#header">
- <button onClick={() => handleClick(4,'select')} className={`${page === 4? 'bg-[#191919]' : 'bg-[#BD1023]' } p-2 px-4`}>4</button></a>
- <a href="#header">
- <button onClick={() => handleClick(5,'select')} className={`${page === 5? 'bg-[#191919]' : 'bg-[#BD1023]' } p-2 px-4`}>5</button></a>
- <a href="#header">
- <button onClick={() => handleClick(6,'select')} className={`${page === 6? 'bg-[#191919]' : 'bg-[#BD1023]' } p-2 px-4`}>6</button></a>
+        {renderButtons()}
       </section>
 
       <button
