@@ -58,7 +58,7 @@ export default function Home(props: HomeProps) {
   return (
     <>
     <SearchArea setIsSearching={setIsSearching} setSearchContent={setSearchContent} />
-        {isOrderCompletion && <div className='flex z-40  absolute p-5 align-center left-[20%] right-[20%] top-40 font-semibold items-center justify-center p-5 rounded-md flex-col absolute mx-10  bg-[#BD1023] text-3xl'>
+        {isOrderCompletion && <div className='flex z-40  absolute p-5 align-center left-[20%] right-[20%] top-40 font-semibold items-center justify-center p-5 rounded-md flex-col absolute mx-10  bg-[#BD1023] text-3xl sm:w-[80%] sm:left-0 sm:text-2xl'>
         <h1 className='text-4xl'>Congratulations,</h1>
         <p className='text-3xl'>your comic:</p>
         <p className='text-white'>{actualDetails?.title}</p> 
@@ -66,7 +66,7 @@ export default function Home(props: HomeProps) {
         <p className='text-white'>{selectedAdress}</p>
         <button onClick={() => setIsOrderCompletion(false)} className='bg-white rounded-md mt-2 p-2 hover:text-[#BD1023] hover:scale-110 w-[80%]'>OK</button>
         </div>}
-        {isLoading ? <Transition /> : <div className={`flex flex-row ${isOrderCompletion ? 'opacity-10' : ''} flex-wrap gap-5 gap-y-10  justify-center w-[100%] bg-[#1E1E1E] py-10`}>
+        {isLoading ? <Transition /> : <div className={`flex flex-row ${isOrderCompletion ? 'opacity-10' : ''} flex-wrap gap-5 gap-y-10  justify-center w-[100%] bg-[#1E1E1E] py-10 sm:pb-40 md:pb-52`}>
       {renderComics()}
   
     </div>}

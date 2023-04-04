@@ -72,9 +72,10 @@ export default function Map(props) {
       >
          <Marker position={position} visible={true} className='z-60 absolute'/>
          <div className='flex justify-end '>
-         <button onClick={() => props.setIsShowDelivery(false)} className='flex bg-[#BD1023] right-16 top-2.5 absolute text-white font-semibold  p-2 hover:scale-110 rounded-md'>Close Map</button>
+         <button onClick={() => props.setIsShowDelivery(false)} className='flex bg-[#BD1023]
+         mt-2.5 mr-16 absolute text-white font-semibold  p-2 hover:scale-110 rounded-md sm:mt-16 sm:left-2'>Close Map</button>
          </div>
-         <section className='flex flex-col justify-around  bottom-2 gap-2 bg-[#BD1023] text-white p-2 left-2.5 absolute h-72 w-[20%] font-semibold rounded-md text-center text-[#333]'>
+         <section className='flex flex-col justify-around  bottom-2 gap-2 bg-[#BD1023] text-white p-2 left-2.5 absolute h-72 w-[20%] font-semibold rounded-md text-center text-[#333] sm:w-[35%]  sm:h-[60%] md:h-[40%]'>
           <h1>SELECT ADRESS</h1>
           <div>
           <h2>ACTUAL ADRESS:</h2>

@@ -48,15 +48,15 @@ export default function ComicDetailsCard(props: ComicDetailsCardProps) {
     }
 
   if(thumbnail === notExistImg) {
-    return    <div className='flex flex-row   justify-center w-[100%]'>
-    <div  className='flex flex-col gap-2 justify-center w-[50%] items-center detailsComicImg z-0 perspectiva'>
-            <button onClick={() => setShowDetails(false)} className='flex fixed top-0 left-1 w-[4%] m-2 p-1 px-3 bg-[#BD1023] rounded-full justify-center items-center'><img className='w-[100%] flex flex-col justify-center' src={BackIcon} /></button>
-            <div className='flex flex-col justify-center rounded-md  imgDefaultDetails text-center w-[50%] h-[80%]'><div className='flex  flex-row bg-[#FFFFFF] h-[30%]  justify-center items-center px-2 p-5'><h1 className='mx-2 text-3xl py-10 text-[#BD1023] font-semibold font-dmsans'>{title}</h1></div></div>
-            <button onClick={() => setShowDelivery(true)} className='bg-[#BD1023] text-white font-semibold rounded-md w-[50%] p-4 text-xl deliveryButton'>SELECT DELIVERY LOCATION</button>
+    return    <div className='flex flex-row sm:flex-col   justify-center w-[100%]'>
+    <div  className='flex flex-col gap-2 justify-center w-[50%] sm:w-[100%] items-center detailsComicImg z-0 perspectiva'>
+            <button onClick={() => setShowDetails(false)} className='flex fixed top-0 left-1 w-[4%] m-2 p-1 px-3 bg-[#BD1023] rounded-full justify-center items-center sm:p-5'><img className='w-[100%] flex flex-col justify-center sm:w-[50%] sm:absolute' src={BackIcon} /></button>
+            <div className='flex flex-col justify-center rounded-md  imgDefaultDetails text-center w-[50%] sm: h-[80%] sm:w-[70%] sm:pt-10 sm:pb-2 sm:h-[60vh] sm:mt-10'><div className='flex  flex-row bg-[#FFFFFF] h-[30%] sm:h-[40%] justify-center items-center px-2 p-5 '><h1 className='mx-2 text-3xl py-10 text-[#BD1023] sm:text-xl font-semibold font-dmsans'>{title}</h1></div></div>
+            <button onClick={() => setShowDelivery(true)} className='bg-[#BD1023] text-white font-semibold rounded-md w-[50%] sm:w-[70%] p-4 sm:p-2 text-xl deliveryButton sm:mb-5'>SELECT DELIVERY LOCATION</button>
 </div>
-    <section className='flex flex-col bg-[#EDEEEF] overflow-y-auto w-[50%] h-[100vh]'>
+    <section className='flex flex-col bg-[#EDEEEF] overflow-y-auto w-[50%] sm:w-[100%] h-[100vh]'>
       <div className='flex flex-col bg-[#BD1023] items-center justify-center text-center gap-5 py-14 px-5'>
-        <h1 className='uppercase text-4xl text-white font-semibold font-dmsans titleDetails'>{title}</h1>
+        <h1 className='uppercase text-4xl text-white font-semibold font-dmsans titleDetails sm:text-2xl'>{title}</h1>
         {formatedDescription ?      <p className='font-dmsans text-[#ECECEC] text-lg'> {formatedDescription[0]} </p> :  <p className=' font-dmsans text-[#ECECEC] text-lg'> Description Not Exist </p> }
       </div>
       <div className='flex flex-col bg-[#EDEEEF] gap-2'>
@@ -68,19 +68,18 @@ export default function ComicDetailsCard(props: ComicDetailsCardProps) {
     </section>
     {showDelivery && <Delivery setSelectedAdress={setSelectedAdress} setIsOrderCompletion={setIsOrderCompletion} setIsShowDelivery={setShowDelivery} />}
       </div>
-    // return 
   }
 
   return (
-    <div className='flex flex-row   justify-center w-[100%] relative'>
-<div  className={`flex ${showDelivery && 'opacity-30'} flex-col gap-2 justify-center w-[50%] items-center detailsComicImg z-0 perspectiva`}>
-        <button onClick={() => setShowDetails(false)} className='flex fixed top-0 left-1 w-[4%] m-2 p-1 px-3 bg-[#BD1023] rounded-full justify-center items-center '><img className='w-[100%] flex flex-col justify-center' src={BackIcon} /></button>
+    <div className='flex flex-row sm:flex-col   justify-center w-[100%] relative'>
+<div  className={`flex ${showDelivery && 'opacity-30'} flex-col gap-2 justify-center w-[50%] sm:w-[100%] items-center detailsComicImg z-0 perspectiva sm:pb-5`}>
+        <button onClick={() => setShowDetails(false)} className='flex fixed top-0 left-1 w-[4%] m-2 p-1 sm:p-5 px-3 bg-[#BD1023] rounded-full justify-center items-center md:p-8'><img className='w-[100%] flex flex-col justify-center sm:absolute sm:w-[50%] md:absolute md:w-[50%]' src={BackIcon} /></button>
 
-    <img className='thumb opacity-100 w-[50%]' src={thumbnail}/>
-    <button onClick={() => setShowDelivery(true)} className='bg-[#BD1023] text-white font-semibold rounded-md w-[50%] p-4 text-xl deliveryButton'>SELECT DELIVERY LOCATION</button></div>
-<section className={`flex flex-col bg-[#EDEEEF] overflow-y-auto w-[50%] h-[100vh]  ${showDelivery && 'opacity-30'} `}>
-  <div className='flex flex-col bg-[#BD1023] items-center justify-center text-center gap-5  py-14 px-10'>
-    <h1 className='uppercase text-4xl text-white font-semibold titleDetails font-dmsans'>{title}</h1>
+    <img className='thumb opacity-100 w-[50%] sm:w-[70%] sm:pt-10 sm:pb-2 md:w-[80%]' src={thumbnail}/>
+    <button onClick={() => setShowDelivery(true)} className='bg-[#BD1023] text-white font-semibold rounded-md w-[50%] sm:w-[70%] sm:p-2 s p-4 text-xl deliveryButton md:w-[80%] md:p-5'>SELECT DELIVERY LOCATION</button></div>
+<section className={`flex flex-col bg-[#EDEEEF] overflow-y-auto w-[50%] sm:w-[100%] h-[100vh]  ${showDelivery && 'opacity-30'} `}>
+  <div className='flex flex-col bg-[#BD1023] items-center justify-center text-center gap-5  py-14 sm:pt-2 px-10'>
+    <h1 className='uppercase text-4xl text-white font-semibold titleDetails font-dmsans sm:text-2xl'>{title}</h1>
     {formatedDescription && formatedDescription[0] !== '' ?      <p className='font-sans text-[#ECECEC] text-lg'> {formatedDescription[0]} </p> :  <p className=' font-dmsans text-[#ECECEC] text-lg'> Description Not Exist </p> }
   </div>
   <div className='flex flex-col bg-[#EDEEEF] gap-2'>
