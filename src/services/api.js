@@ -17,6 +17,6 @@ const hash2 = md5(time + privateKey2 + publicKey2)
 
 export const comicsApi = `http://gateway.marvel.com/v1/public/comics?ts=${time}&apikey=${publicKey1}&hash=${hash1}&limit=40`
 
-export const comicsApi2 = `http://gateway.marvel.com/v1/public/comics?ts=${time}&apikey=${publicKey2}&hash=${hash2}&limit=100`
+export const comicsApi2 = `https://gateway.marvel.com/v1/public/comics?ts=${time}&apikey=${publicKey2}&hash=${hash2}&limit=100`
 
 export const REACT_APP_GOOGLE_API_KEY = 'AIzaSyBtD1UNQzdpCHul2mninUhJhGJnQesnka0'
