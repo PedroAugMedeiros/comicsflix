@@ -58,7 +58,7 @@ export default function Home(props: HomeProps) {
   return (
     <>
     <SearchArea setIsSearching={setIsSearching} setSearchContent={setSearchContent} />
-        {isOrderCompletion && <div className='flex z-40  absolute p-5 align-center left-[20%] right-[20%] font-semibold items-center justify-center p-5 rounded-md flex-col absolute mx-10  bg-[#BD1023] text-3xl'>
+        {isOrderCompletion && <div className='flex z-40  absolute p-5 align-center left-[20%] right-[20%] top-40 font-semibold items-center justify-center p-5 rounded-md flex-col absolute mx-10  bg-[#BD1023] text-3xl'>
         <h1 className='text-4xl'>Congratulations,</h1>
         <p className='text-3xl'>your comic:</p>
         <p className='text-white'>{actualDetails?.title}</p> 

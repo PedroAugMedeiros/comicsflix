@@ -61,7 +61,7 @@ export default function ComicCard(props: ComicCardProps) {
         <div className='flex  flex-row bg-[#BD1023] text-[#FFFFFF] h-[30%] text-center justify-center items-center '><h1 className='mx-2 text-sm font-semibold font-dmsans'>{title}</h1></div>
         </div>
         {onHover && <div className='flex flex-col bg-[#BD1023] rounded-b-md text-center justify-center items-center'> 
-          <button onClick={() => handleClick(true)} onMouseOver={() => setOnHoverDetails(true)} onMouseOut={() => setOnHoverDetails(false)} className={`bg-[#191919] p-1 w-[80%]  font-semibold font-dmsans  rounded-md m-2 ${onHoverDetails ? 'text-[#BD1023]' : 'text-white'}`}>Detalhes</button>
+          <button onClick={() => handleClick(true)} onMouseOver={() => setOnHoverDetails(true)} onMouseOut={() => setOnHoverDetails(false)} className={`bg-[#191919] p-1 w-[80%]  font-semibold font-dmsans  rounded-md m-2 ${onHoverDetails ? 'text-[#BD1023]' : 'text-white'}`}>Details</button>
         </div>}
         </div>
         )
