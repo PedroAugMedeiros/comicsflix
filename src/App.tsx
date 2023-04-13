@@ -19,9 +19,6 @@ function App() {
     }
   }, [isOrderCompletion]) 
 
-  console.log(actualDetails)
-  console.log(isOrderCompletion)
-
   return showDetails ? <ComicDetailsCard setSelectedAdress={setSelectedAdress} setIsOrderCompletion={setIsOrderCompletion} 
    setShowDetails={setShowDetails}
   title={actualDetails?.title} stories={actualDetails?.stories} description={actualDetails?.description} thumbnail={actualDetails?.thumbnail} creators={actualDetails?.creators} /> :  <div className="App bg-[#1E1E1E] h-[220vh]"><Header /><Home setIsOrderCompletion={setIsOrderCompletion} actualDetails={actualDetails} selectedAdress={selectedAdress} isOrderCompletion={isOrderCompletion} setActualDetails={setActualDetails} setShowDetails={setShowDetails}/></div>
