@@ -18,4 +18,4 @@ Back: NodeJs, express, nodemon, Api Rest, json, cors
 
 ## npm start
 
-## Deploy:
+## Deploy: comicsflix.netlify.app
