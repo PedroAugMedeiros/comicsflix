@@ -1,7 +1,6 @@
 import './App.css';
 import Home from './components/Home';
 import Header from './components/Header';
-// import ComicDetailsCard from './components/ComicDetailsCard';
 import { useEffect, useState } from 'react';
 import { ComicSelected } from './interfaces';
 import ComicDetailsCard from './components/ComicDetailsCard';

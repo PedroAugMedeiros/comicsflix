@@ -1,4 +1,3 @@
-import React from 'react'
 import TransitionImage from '../images/marvelGifTransition-unscreen.gif'
 
 
