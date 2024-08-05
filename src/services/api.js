@@ -3,11 +3,11 @@ import md5 from 'md5';
 
 const publicKey1 = 'da4df83d11a4c062f7d80d5ba2997fa8'
 
-const publicKey2 = 'fb958cd3f722d9700f15a202c7e9cd98'
+const publicKey2 = 'da4df83d11a4c062f7d80d5ba2997fa8'
 
 const privateKey1 = '1a43b8343decf82e21d34697a205bfd1b62db1de'
 
-const privateKey2 = 'c2e1cd19b383e541df950a00bab9e025d2be9da1'
+const privateKey2 = '1a43b8343decf82e21d34697a205bfd1b62db1de'
 
 const time = Number(new Date())
 
